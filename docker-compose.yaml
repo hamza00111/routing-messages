@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  ibm-mq:
+    image: icr.io/ibm-messaging/mq:latest
+    container_name: ibm-mq
+    environment:
+      LICENSE: accept
+      MQ_QMGR_NAME: QM1
+      MQ_ENABLE_METRICS: "true"
+      MQ_ADMIN_USER: admin
+      MQ_ADMIN_PASSWORD: adminPassw0rd
+      MQ_APP_USER: routinguser
+      MQ_APP_PASSWORD: routingpassw0rd
+    ports:
+      - "1414:1414"
+      - "9443:9443"
+    volumes:
+      - mq_data:/var/mqm
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16
+    container_name: postgres-server
+    restart: always
+    environment:
+      POSTGRES_USER: routinguser
+      POSTGRES_PASSWORD: routingPassw0rd
+      POSTGRES_DB: routingdb
+    ports:
+      - "5432:5432"
+
+  backend:
+    image: routing-service:0.0.1-SNAPSHOT
+    build:
+      context: ./routing-service
+      dockerfile: Dockerfile
+    container_name: routing-service
+    restart: always
+    environment:
+      MQ_HOSTNAME : ibm-mq
+      MQ_PORT: 1414
+      MQ_QM: QM1
+      MQ_CHANNEL: DEV.APP.SVRCONN
+      MQ_USERNAME: admin
+      MQ_USER_PASSWORD: adminPassw0rd
+      SPRING.DATASOURCE.URL: jdbc:postgresql://postgres:5432/routingdb
+      SPRING.DATASOURCE.USERNAME: routinguser
+      SPRING.DATASOURCE.PASSWORD: routingPassw0rd
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
+    driver: local
+  mq_data:
+    driver: local
