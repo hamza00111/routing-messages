@@ -1,0 +1,42 @@
+.confirmation-dialog {
+  padding: 24px;
+  max-width: 400px;
+  background-color: white;
+
+  .dialog-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    .warning-icon {
+      color: #f59e0b;
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
+
+    h2 {
+      margin: 0;
+      color: #1e293b;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+
+  [mat-dialog-content] {
+    p {
+      color: #475569;
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+
+  [mat-dialog-actions] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 24px;
+    padding: 0;
+  }
+}

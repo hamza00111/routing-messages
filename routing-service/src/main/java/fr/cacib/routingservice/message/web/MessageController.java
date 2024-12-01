@@ -2,7 +2,7 @@ package fr.cacib.routingservice.message.web;
 
 import fr.cacib.routingservice.message.domain.model.Message;
 import fr.cacib.routingservice.message.domain.ports.inbound.IFindMessageUseCase;
-import fr.cacib.routingservice.message.domain.ports.inbound.IReadMessagesUseCase;
+import fr.cacib.routingservice.message.domain.ports.inbound.IFetchMessagesUseCase;
 import fr.cacib.routingservice.message.domain.valueobject.PaginatedResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/messages")
 public class MessageController {
 
-	private final IReadMessagesUseCase readMessagesUseCase;
+	private final IFetchMessagesUseCase fetchMessagesUseCase;
 	private final IFindMessageUseCase findMessageUseCase;
 
-	public MessageController(IReadMessagesUseCase readMessagesUseCase,
+	public MessageController(IFetchMessagesUseCase fetchMessagesUseCase,
 							 IFindMessageUseCase findMessageUseCase) {
-		this.readMessagesUseCase = readMessagesUseCase;
+		this.fetchMessagesUseCase = fetchMessagesUseCase;
 		this.findMessageUseCase = findMessageUseCase;
 	}
 
@@ -25,7 +25,7 @@ public class MessageController {
 			@RequestParam(defaultValue = "0") int offset,
 			@RequestParam(defaultValue = "10") int limit) {
 
-		PaginatedResponse<Message> response = readMessagesUseCase.getMessages(offset,
+		PaginatedResponse<Message> response = fetchMessagesUseCase.getMessages(offset,
 				limit);
 
 		if (response.getContent().isEmpty()) {
@@ -38,7 +38,6 @@ public class MessageController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Message> getMessage(
 			@PathVariable String id) {
-
 		return ResponseEntity.ok(findMessageUseCase.findById(id));
 	}
 }

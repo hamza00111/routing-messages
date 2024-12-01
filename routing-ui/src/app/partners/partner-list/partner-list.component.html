@@ -1,0 +1,86 @@
+<div class="partner-list-container">
+  <div class="header">
+    <h2>Partners</h2>
+    <div class="table-top-right">
+      <button mat-icon-button class="refresh" (click)="refreshPartners()" [disabled]="loading">
+        <mat-icon>refresh</mat-icon>
+      </button>
+      <button mat-raised-button class="add-partner" (click)="openAddPartnerDialog()">
+        <mat-icon>add</mat-icon>
+        Add Partner
+      </button>
+    </div>
+  </div>
+
+  <ng-container *ngIf="loading">
+    <app-loading-spinner></app-loading-spinner>
+  </ng-container>
+
+  <ng-container *ngIf="error">
+    <app-error-message [message]="error"></app-error-message>
+  </ng-container>
+
+  <div class="table-container" *ngIf="!error && !loading">
+    <div class="message-table-wrapper">
+      <table mat-table [dataSource]="partners" class="mat-elevation-z8">
+        <ng-container matColumnDef="alias">
+          <th mat-header-cell *matHeaderCellDef>Alias</th>
+          <td mat-cell *matCellDef="let partner">{{partner.alias}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef>Type</th>
+          <td mat-cell *matCellDef="let partner">{{partner.type}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="direction">
+          <th mat-header-cell *matHeaderCellDef>Direction</th>
+          <td mat-cell *matCellDef="let partner">{{partner.direction}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="application">
+          <th mat-header-cell *matHeaderCellDef>Application</th>
+          <td mat-cell *matCellDef="let partner">{{partner.application || '-'}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="processedFlowType">
+          <th mat-header-cell *matHeaderCellDef>Flow Type</th>
+          <td mat-cell *matCellDef="let partner">{{partner.processedFlowType}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let partner" class="description-cell">{{partner.description}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let partner">
+            <button mat-icon-button color="warn" (click)="deletePartner(partner)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="no-data" *ngIf="!loading && !error && partners.length === 0">
+    <p>No partners found. Click the "Add Partner" button to create one.</p>
+  </div>
+
+  <mat-paginator
+    #paginator
+    [length]="totalElements"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="pageIndex"
+    (page)="onPageChange($event)"
+    showFirstLastButtons
+    aria-label="Select page">
+  </mat-paginator>
+</div>

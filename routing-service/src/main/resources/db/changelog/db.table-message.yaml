@@ -22,3 +22,31 @@ databaseChangeLog:
                   type: TIMESTAMP
                   constraints:
                     nullable: false
+
+  - changeSet:
+      id: 2
+      author: hsamid
+      changes:
+        - createIndex:
+            clustered: true
+            columns:
+              - column:
+                  descending: true
+                  name: timestamp
+            indexName: idx_timestamp_desc
+            schemaName: public
+            tableName: message
+
+  - changeSet:
+      id: 3
+      author: hsamid
+      changes:
+        - createIndex:
+            clustered: true
+            columns:
+              - column:
+                  name: id
+            indexName: idx_id
+            schemaName: public
+            tableName: message
+

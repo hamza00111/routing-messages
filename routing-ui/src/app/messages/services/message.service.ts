@@ -3,8 +3,8 @@ import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Message } from '../models/message.model';
-import { API_ENDPOINTS } from '../core/constants/api.constants';
-import {PaginatedResponse} from "../models/paginated-response.model";
+import { API_ENDPOINTS } from '../../core/constants/api.constants';
+import {PaginatedResponse} from "../../shared/models/paginated-response.model";
 
 @Injectable({
   providedIn: 'root'

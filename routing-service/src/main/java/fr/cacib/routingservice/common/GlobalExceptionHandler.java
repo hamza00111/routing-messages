@@ -1,7 +1,7 @@
 package fr.cacib.routingservice.common;
 
 import fr.cacib.routingservice.message.domain.exceptions.MessageNotFoundException;
-import fr.cacib.routingservice.message.domain.exceptions.NotUUIDException;
+import fr.cacib.routingservice.partner.domain.exceptions.AddPartnerCommandException;
 import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,5 +22,11 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<String> handleNotUUIDException(NotUUIDException ex) {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 				.body("Invalid UUID: %s".formatted(ex.getMessage()));
+	}
+
+	@ExceptionHandler(AddPartnerCommandException.class)
+	public ResponseEntity<String> handleAddPartnerCommandException(AddPartnerCommandException ex) {
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+				.body("Invalid Body Request: %s".formatted(ex.getMessage()));
 	}
 }

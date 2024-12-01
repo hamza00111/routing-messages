@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: hsamid
+      changes:
+        - createTable:
+            tableName: partner
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: alias
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: direction
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: application
+                  type: text
+                  constraints:
+                    nullable: true
+              - column:
+                  name: processed_flow_type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: text
+                  constraints:
+                    nullable: false

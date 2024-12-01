@@ -1,0 +1,19 @@
+.add-partner-dialog {
+  padding: 20px;
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .error-message {
+    color: #e53e3e;
+    margin-bottom: 16px;
+  }
+
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}

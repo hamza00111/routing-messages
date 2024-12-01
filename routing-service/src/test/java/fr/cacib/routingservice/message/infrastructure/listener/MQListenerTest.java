@@ -3,7 +3,7 @@ package fr.cacib.routingservice.message.infrastructure.listener;
 import fr.cacib.routingservice.message.config.mq.MQConfigProperties;
 import fr.cacib.routingservice.message.domain.model.Message;
 import fr.cacib.routingservice.message.domain.ports.inbound.IReadMessageUseCase;
-import fr.cacib.routingservice.message.domain.ports.outbound.ISaveMessageUseCase;
+import fr.cacib.routingservice.message.domain.ports.inbound.ISaveMessageUseCase;
 import fr.cacib.routingservice.message.domain.ports.outbound.ISendMessageContent;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

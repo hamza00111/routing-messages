@@ -56,3 +56,101 @@ html, body {
 .mat-dialog-actions .mat-mdc-raised-button {
   margin-left: 8px;
 }
+
+.error-snackbar {
+  background: #ef4444;
+  color: white;
+}
+
+.mat-mdc-snack-bar-container {
+  &.error-snackbar {
+    --mdc-snackbar-container-color: #ef4444;
+    --mat-mdc-snack-bar-button-color: white;
+    --mdc-snackbar-supporting-text-color: white;
+  }
+}
+
+.mat-mdc-table {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 8px !important;
+}
+
+.mat-mdc-header-row {
+  background-color: #004D40 !important; /* Bright Teal */
+}
+
+.mat-mdc-header-cell {
+  color: #FFFFFF !important; /* White */
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 16px !important;
+}
+
+.mat-mdc-row {
+  background-color: #E8F6F6 !important; /* Light Cyan */
+}
+
+.mat-mdc-row:nth-child(odd) {
+  background-color: #E8F6F6 !important; /* Light Cyan */
+}
+
+.mat-mdc-row:nth-child(even) {
+  background-color: #0D4D4D !important; /* Darker Teal */
+}
+
+.mat-mdc-cell {
+  color: #B3D9D9 !important; /* Light Aqua */
+  padding: 16px !important;
+}
+
+.mat-mdc-row:hover {
+  background-color: #0A3F3F !important; /* Slightly Darker Green */
+  transition: background-color 0.2s ease;
+}
+
+button {
+  background-color: #084C4C !important; /* Deep Green */
+  color: #FFFFFF !important; /* White */
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0A3F3F !important; /* Slightly Darker Green */
+  transition: background-color 0.2s ease;
+}
+
+mat-paginator {
+  background: #004D40 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 0 0 8px 8px !important;
+  margin-top: 0 !important;
+
+  .mat-mdc-paginator-container {
+    color: white !important;
+  }
+
+  .mat-mdc-paginator-range-label,
+  .mat-mdc-paginator-page-size-label {
+    color: white !important;
+  }
+
+  .mat-mdc-paginator-navigation-first,
+  .mat-mdc-paginator-navigation-previous,
+  .mat-mdc-paginator-navigation-next,
+  .mat-mdc-paginator-navigation-last {
+    color: white !important;
+  }
+
+  .mat-mdc-select-value-text {
+    color: white !important;
+  }
+
+  .mat-mdc-select-arrow {
+    color: white !important;
+  }
+}

@@ -1,4 +1,4 @@
-package fr.cacib.routingservice.message.domain.ports.outbound;
+package fr.cacib.routingservice.message.domain.ports.inbound;
 
 import fr.cacib.routingservice.message.domain.model.Message;
 

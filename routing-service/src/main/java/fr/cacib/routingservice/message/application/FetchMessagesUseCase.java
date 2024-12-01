@@ -1,17 +1,17 @@
 package fr.cacib.routingservice.message.application;
 
 import fr.cacib.routingservice.message.domain.model.Message;
-import fr.cacib.routingservice.message.domain.ports.inbound.IReadMessagesUseCase;
+import fr.cacib.routingservice.message.domain.ports.inbound.IFetchMessagesUseCase;
 import fr.cacib.routingservice.message.domain.ports.outbound.MessageRepository;
 import fr.cacib.routingservice.message.domain.valueobject.PaginatedResponse;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ReadMessagesUseCase implements IReadMessagesUseCase {
+public class FetchMessagesUseCase implements IFetchMessagesUseCase {
 
 	private final MessageRepository messageRepository;
 
-	public ReadMessagesUseCase(MessageRepository messageRepository) {
+	public FetchMessagesUseCase(MessageRepository messageRepository) {
 		this.messageRepository = messageRepository;
 	}
 
