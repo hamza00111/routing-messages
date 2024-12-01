@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <div class="left-nav">
+    <span>{{title}}</span>
+    <nav>
+      <a mat-button routerLink="/messages">Messages</a>
+      <a mat-button routerLink="/partners">Partners</a>
+    </nav>
+  </div>
+  <img src="credit_agricole_logo_accueil.ico" alt="Crédit Agricole" class="logo">
+</mat-toolbar>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

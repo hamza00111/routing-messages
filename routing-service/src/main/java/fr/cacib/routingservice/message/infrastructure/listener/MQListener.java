@@ -35,17 +35,19 @@ public class MQListener {
 	@JmsListener(destination = "${ibm.mq.queue}", containerFactory = "mqFactory")
 	public void onMessage(String content, jakarta.jms.Message jmsMessage) {
 		try {
-			log.info("message received: {}", content);
+			log.info("Message received: {}", content);
 			retryTemplate.execute(retryContext -> {
 				Message message = readMessageUseCase.readMessage(content);
 				saveMessageUseCase.save(message);
 				jmsMessage.acknowledge();
+				log.info("Message with content '{}' acknowledged", content);
 				return null;
 			});
 		} catch (Exception e) {
 			log.error("Failed to process message: {}", content, e);
 			String deadLetterQueue = properties.getDeadLetterQueue();
 			sendMessageContent.sendMessageContent(deadLetterQueue, content);
+			log.info("Message with content '{}' sent to dead letter queue {}", content, deadLetterQueue);
 		}
 	}
 }

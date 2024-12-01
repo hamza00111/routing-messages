@@ -5,6 +5,7 @@ import fr.cacib.routingservice.message.domain.ports.outbound.MessageRepository;
 import fr.cacib.routingservice.message.domain.valueobject.PaginatedResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
@@ -31,7 +32,7 @@ public class JpaMessageRepositoryAdapter implements MessageRepository {
 												  int limit) {
 
 		Page<Message> messagePage = jpaMessageRepository.findAll(PageRequest.of(offset,
-				limit));
+				limit, Sort.by(Sort.Direction.DESC, "timestamp")));
 
 		return PaginatedResponse.<Message>builder()
 				.content(messagePage.getContent())

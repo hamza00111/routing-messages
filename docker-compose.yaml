@@ -59,6 +59,17 @@ services:
     networks:
       - app-network
 
+  frontend:
+    image: routing-ui:v1.0.0
+    build:
+      context: ./routing-ui
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "4200:4200"
+    networks:
+      - app-network
+
 volumes:
   postgres_data:
     driver: local

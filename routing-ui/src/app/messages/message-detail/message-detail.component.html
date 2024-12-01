@@ -1,0 +1,24 @@
+<div class="message-detail">
+  <h2>Message Details</h2>
+
+  <div class="message-content">
+    <div class="detail-row">
+      <strong>ID:</strong>
+      <span>{{message.id}}</span>
+    </div>
+
+    <div class="detail-row">
+      <strong>Timestamp:</strong>
+      <span>{{message.timestamp | date:'medium'}}</span>
+    </div>
+
+    <div class="detail-row">
+      <strong>Content:</strong>
+      <pre class="scrollable-content">{{message.content}}</pre>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button mat-raised-button (click)="onClose()">Close</button>
+  </div>
+</div>
