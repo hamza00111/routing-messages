@@ -1,0 +1,58 @@
+@import '@angular/material/prebuilt-themes/purple-green.css';
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #ECEFF1;
+  color: #455A64;
+}
+
+.mat-typography {
+  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-button.mat-primary,
+.mat-mdc-raised-button.mat-primary,
+.mat-mdc-unelevated-button.mat-primary {
+  --mdc-filled-button-container-color: #2c5282;
+  --mdc-filled-button-label-text-color: #ffffff;
+}
+
+.mat-mdc-button.mat-primary:hover,
+.mat-mdc-raised-button.mat-primary:hover,
+.mat-mdc-unelevated-button.mat-primary:hover {
+  --mdc-filled-button-container-color: #1a365d;
+}
+
+.mat-mdc-button.mat-accent,
+.mat-mdc-raised-button.mat-accent,
+.mat-mdc-unelevated-button.mat-accent {
+  --mdc-filled-button-container-color: #4c51bf;
+  --mdc-filled-button-label-text-color: #ffffff;
+}
+
+.mat-mdc-button.mat-warn,
+.mat-mdc-raised-button.mat-warn,
+.mat-mdc-unelevated-button.mat-warn {
+  --mdc-filled-button-container-color: #c53030;
+  --mdc-filled-button-label-text-color: #ffffff;
+}
+
+/* Table action buttons */
+.mat-mdc-icon-button {
+  --mdc-icon-button-icon-color: #4a5568;
+}
+
+.mat-mdc-icon-button:hover {
+  background-color: rgba(74, 85, 104, 0.04);
+}
+
+/* Dialog action buttons */
+.mat-dialog-actions .mat-mdc-button {
+  --mdc-text-button-label-text-color: #4a5568;
+}
+
+.mat-dialog-actions .mat-mdc-raised-button {
+  margin-left: 8px;
+}

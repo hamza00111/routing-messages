@@ -1,0 +1,82 @@
+.message-list-container {
+  padding: 20px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      margin: 0;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .refresh {
+      color: #007963;
+
+      &:hover {
+        background-color: #00A49E;
+      }
+    }
+  }
+
+  .message-table-wrapper {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 600px;
+  }
+
+  .message-table-wrapper::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .message-table-wrapper::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  .message-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .message-table-wrapper::-webkit-scrollbar-track {
+    background: #222;
+  }
+
+  table {
+    width: 100%;
+
+    .mat-column-id {
+      width: 15%;
+      white-space: nowrap;
+    }
+
+    .mat-column-timestamp {
+      width: 20%;
+    }
+
+    .mat-column-content {
+      width: 45%;
+
+      .content-cell {
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .mat-column-actions {
+      width: 20%;
+      text-align: center;
+    }
+  }
+}
+
+.mat-mdc-button.view-details {
+  color: #4c51bf;
+  font-weight: 500;
+}

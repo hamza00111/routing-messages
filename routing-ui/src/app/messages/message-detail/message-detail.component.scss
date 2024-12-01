@@ -1,0 +1,73 @@
+.message-detail {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  h2 {
+    color: #1e293b;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .message-content {
+    margin-bottom: 20px;
+
+    .detail-row {
+      margin-bottom: 20px;
+
+      strong {
+        color: #475569;
+        display: block;
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      pre {
+        background: #f8fafc;
+        border-radius: 6px;
+        color: #334155;
+        font-family: 'Roboto Mono', monospace;
+        margin: 0;
+        padding: 16px;
+        white-space: pre-wrap;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      color: #007963;
+    }
+  }
+
+  .scrollable-content {
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    white-space: pre-wrap;
+  }
+
+  .scrollable-content::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollable-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  .scrollable-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .scrollable-content::-webkit-scrollbar-track {
+    background: #fff;
+  }
+}

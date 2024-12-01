@@ -1,0 +1,35 @@
+mat-toolbar {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #004D40, #80CBC4);
+
+  .left-nav {
+    display: flex;
+  }
+
+  nav {
+    margin-left: 20px;
+
+    a {
+      color: #ECEFF1;
+    }
+  }
+
+  .logo {
+    height: 64px;
+    margin-right: 20px;
+  }
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.mat-toolbar.mat-primary {
+  background: #4B504BFF !important;
+  color: #177E6DFF !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
