@@ -1,7 +1,7 @@
 package fr.cacib.routingservice.message.application;
 
 import fr.cacib.routingservice.message.domain.exceptions.MessageNotFoundException;
-import fr.cacib.routingservice.message.domain.exceptions.NotUUIDException;
+import fr.cacib.routingservice.common.NotUUIDException;
 import fr.cacib.routingservice.message.domain.model.Message;
 import fr.cacib.routingservice.message.domain.ports.outbound.MessageRepository;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
 package fr.cacib.routingservice.message.application;
 
 import fr.cacib.routingservice.message.domain.model.Message;
-import fr.cacib.routingservice.message.domain.ports.outbound.ISaveMessageUseCase;
+import fr.cacib.routingservice.message.domain.ports.inbound.ISaveMessageUseCase;
 import fr.cacib.routingservice.message.domain.ports.outbound.MessageRepository;
 import org.springframework.stereotype.Component;
 

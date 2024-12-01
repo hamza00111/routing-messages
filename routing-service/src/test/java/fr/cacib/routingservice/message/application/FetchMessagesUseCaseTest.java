@@ -18,13 +18,13 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ReadMessagesUseCaseTest {
+class FetchMessagesUseCaseTest {
 
 	@Mock
 	private MessageRepository messageRepository;
 
 	@InjectMocks
-	private ReadMessagesUseCase readMessagesUseCase;
+	private FetchMessagesUseCase readMessagesUseCase;
 
 	@Test
 	void testGetMessages() {

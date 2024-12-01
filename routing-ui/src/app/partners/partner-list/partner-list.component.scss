@@ -1,0 +1,125 @@
+.partner-list-container {
+  padding: 20px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      margin: 0;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .refresh {
+      color: #007963;
+      margin-right: 5px;
+
+      &:hover {
+        background-color: #00A49E;
+      }
+    }
+
+    .add-partner {
+      color: #ECEFF1;
+      background-color: #007963;
+
+      &:hover {
+        background-color: #00A49E;
+      }
+    }
+
+    .table-top-right {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .table-container {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+
+  table {
+    width: 100%;
+
+    .mat-column-alias {
+      width: 15%;
+    }
+
+    .mat-column-type {
+      width: 10%;
+    }
+
+    .mat-column-direction {
+      width: 10%;
+    }
+
+    .mat-column-application {
+      width: 15%;
+    }
+
+    .mat-column-processedFlowType {
+      width: 15%;
+    }
+
+    .mat-column-description {
+      width: 25%;
+
+      .description-cell {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .mat-column-actions {
+      width: 10%;
+      text-align: center;
+    }
+  }
+
+
+  .no-data {
+    text-align: center;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 8px;
+    margin-top: 20px;
+
+    p {
+      color: #64748b;
+      margin: 0;
+    }
+  }
+}
+
+.message-table-wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.message-table-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.message-table-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.message-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.message-table-wrapper::-webkit-scrollbar-track {
+  background: #222;
+}

@@ -1,4 +1,4 @@
-package fr.cacib.routingservice.message.domain.exceptions;
+package fr.cacib.routingservice.common;
 
 public class NotUUIDException extends RuntimeException {
 
