@@ -18,6 +18,8 @@ services:
     volumes:
       - mq_data:/var/mqm
     restart: unless-stopped
+    networks:
+      - app-network
 
   postgres:
     image: postgres:16
@@ -29,6 +31,10 @@ services:
       POSTGRES_DB: routingdb
     ports:
       - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
 
   backend:
     image: routing-service:0.0.1-SNAPSHOT
@@ -38,7 +44,8 @@ services:
     container_name: routing-service
     restart: always
     environment:
-      MQ_HOSTNAME : ibm-mq
+      MQ_HOSTNAME: ibm-mq
+      MQ_CONN_NAME: ibm-mq(1414)
       MQ_PORT: 1414
       MQ_QM: QM1
       MQ_CHANNEL: DEV.APP.SVRCONN
@@ -49,9 +56,15 @@ services:
       SPRING.DATASOURCE.PASSWORD: routingPassw0rd
     ports:
       - "8080:8080"
+    networks:
+      - app-network
 
 volumes:
   postgres_data:
     driver: local
   mq_data:
     driver: local
+
+networks:
+  app-network:
+    driver: bridge
